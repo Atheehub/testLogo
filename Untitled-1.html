@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body, html {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      cursor: pointer; 
+      position: relative;
+    }
+    #mvg-image {
+      width: 300px;
+      height: 300px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transition: transform 5s ease, left 5s ease, top 5s ease;
+    }
+  </style>
+</head>
+<body>
+  <img id="mvg-image" src="https://www.wizard.financial/static/media/wizaart-img.56787174.gif" alt="image">
+  <script>
+    document.addEventListener('click', function(event) {
+      const img = document.getElementById('mvg-image');
+      const newX = event.clientX;
+      const newY = event.clientY;
+      img.style.left = `${newX}px`;
+      img.style.top = `${newY}px`;
+      img.style.transform = `translate(-50%, -50%) rotate(0deg)`;
+    });
+    window.addEventListener('load', function() {
+      const img = document.getElementById('mvg-image');
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+
+      img.style.left = `${centerX}px`;
+      img.style.top = `${centerY}px`;
+    });
+  </script>
+</body>
+</html>
